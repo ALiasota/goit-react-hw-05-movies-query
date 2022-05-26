@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { QueryClientProvider, QueryClient } from 'react-query';
-
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './Navigation';
@@ -25,6 +25,7 @@ const App = () => {
         </Route>    
       </Routes>
     </Suspense>
+    <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>    
   );
 };

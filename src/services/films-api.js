@@ -17,6 +17,9 @@ export async function trendMovies() {
 }
 
 export async function searchMovie(searchQuery = '') {
+  if (!searchQuery) {
+    return;
+  }
   const params = {
     api_key: KEY,
     query: searchQuery,
@@ -47,6 +50,7 @@ export async function movieCredits(id = '') {
   };
   try {
     const response = await axios(`movie/${id}/credits`, { params });
+
     return response.data;
   } catch (error) {
     console.error(error);
